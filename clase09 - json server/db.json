@@ -1,0 +1,57 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "mauricio",
+      "apellido": "rojas",
+      "legajo": "57845",
+      "email": "mauri@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "nombre": "mateo",
+      "apellido": "palacios",
+      "legajo": "43445",
+      "email": "mateo@gmail.com",
+      "password": "mateo1234"
+    },
+    {
+      "id": 1,
+      "nombre": "lucas",
+      "apellido": "fernandez",
+      "legajo": "85478",
+      "email": "fernan@hotmail.com",
+      "password": "lucas456"
+    }
+  ],
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "mouse logitech",
+      "descripcion":"inhanlambrico 12000 dpi",
+      "precio":"20000",
+      "cantidad":"10",
+      "imagen":"https://mexx-img-2019.s3.amazonaws.com/Mouse-Gamer-Logitech-G502-Lightspeed-Gaming_38348_1.jpeg",
+      "fechaVencimiento":"sin fecha"
+    },
+    {"id": 2,
+      "nombre": "teclado gamer logtech",
+      "descripcion":"tecaldo mecanico hermoso",
+      "precio":"120000",
+      "cantidad":"5",
+      "imagen":"https://spacegamer.com.ar/img/Public/1058-producto-teclado-mecanico-redragon-kumara-black-rgb-switch-blue-6217.jpg",
+      "fechaVencimiento":"no vence"},
+    {"id": 3,
+      "nombre": "monitor LG 20'",
+      "descripcion":"monitor gamer 140fps",
+      "precio":"250000",
+      "cantidad":"2",
+      "imagen":"https://fullh4rd.com.ar/img/productos/18/monitor-gamer-22-noblex-sm2200-va-fhd-antirreflejo-100hz-hdmi-vga-0.jpg",
+      "fechaVencimiento":"no vence"}
+  ],
+  "empleados":[{},{},{}],
+  "lenguajes":[],
+  "skills":[]
+  
+}

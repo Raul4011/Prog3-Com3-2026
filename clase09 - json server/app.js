@@ -116,5 +116,13 @@ document.getElementById("search").addEventListener("click", handleClick);
 
 
 
+const getProducts =async () =>{
+    try {
+        const response = await axios.get("http://localhost:5000/productos")
+        console.log(response.data);
+    } catch (error) {
+        console.error(error);
+    }
+}
 
-
+getProducts()
