@@ -1,0 +1,16 @@
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.header {
+    background-color: orange;
+}
+.main {
+    background-color: lightblue;
+}
+
+.footer {
+    background-color: orange;
+}
