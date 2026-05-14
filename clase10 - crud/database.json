@@ -1,0 +1,27 @@
+{
+    "users":[{
+        "id":1,
+        "email":"admin@gmail.com",
+        "password":1234
+    },{
+        "id":2,
+        "email":"conrado@gmail.com",
+        "password":"conrado2026"
+    }],
+    "personas":[{
+        "id":1,
+        "nombre":"beatriz",
+        "apellido":"carrizo",
+        "dni":45000123,
+        "email":"bety@gmail.com",
+        "imagen":"sin imagen"
+
+    },{
+         "id":2,
+        "nombre":"alvaro",
+        "apellido":"llovera",
+        "dni":35456123,
+        "email":"alvaro@gmail.com",
+        "imagen":"sin imagen"
+    }]
+}
