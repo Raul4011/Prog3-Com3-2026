@@ -1,6 +1,7 @@
 
-let personas = []
 
+let personas = []
+let idPersona =0;
 
 // "users":[{
 //         "id":1,
@@ -44,8 +45,8 @@ let personas = []
 //         "imagen":"sin imagen"
 //     }]
 
-const BASE_URL = "http://localhost:3000/personas/"
-document.getElementById("formulario").style.display = "block"
+const BASE_URL = "http://localhost:8000/personas/"
+document.getElementById("btn-update").style.display = "none"
 
 const handleDelete = async (id) => {
   console.log(id);
@@ -61,16 +62,45 @@ const handleDelete = async (id) => {
   }
 }
 
+const handleActualizar = async(id) => {
+let nombre= document.getElementById("nombre").value
+let apellido = document.getElementById("apellido").value
+let email = document.getElementById("email").value
+let dni = document.getElementById("dni").value
+let imagen = document.getElementById("imagen").value
+
+try {
+   let response = await axios.put(BASE_URL + idPersona,{
+    nombre:nombre,
+    apellido,
+    email,
+    dni,
+    imagen
+  })
+  response && alert("persona editada correctamente")
+} catch (error) {
+  console.log(error);
+}
+ 
+}
+
 const handleEditar = (persona) =>{
-console.log(persona.nombre);
-//   document.getElementById("nombre").value = persona.nombre
-// document.getElementById("apellido").value = persona.apellido
-// document.getElementById("email").value = persona.email
+  idPersona = persona.id
+//console.log(id)
+//let response = await axios.get(BASE_URL+id)
+
+document.getElementById("btn-update").style.display = "block"
+document.getElementById("btn-agregar").style.display = "none"
+  document.getElementById("nombre").value = persona.nombre
+document.getElementById("apellido").value = persona.apellido
+document.getElementById("email").value = persona.email
+document.getElementById("dni").value = persona.dni
+document.getElementById("imagen").value = persona.imagen
 }
 
 const getPersonas = async () => {
   let response = await axios.get(BASE_URL)
-  personas.push(response.data)
+  personas = response.data
   console.log(response.data);
 
   if (personas.length > 0) {
@@ -81,10 +111,12 @@ const getPersonas = async () => {
       <td>${p.nombre} ${p.apellido}</td>
       <td>${p.email}</td>
       <td>${p.dni}</td>
-      <td>${p.imagen}</td>
       <td>
-      <button id="btnDelete" class="btn btn-danger" onclick="handleDelete(${p.id})">eliminar</button>
-      <button class="btn btn-warning" id="btn-editar" onclick="handleEditar(${p.nombre})">editar</button>
+        <img src= ${p.imagen} class="img-thumbnail img-fluid" alt="">
+     </td>
+      <td>
+      <button id="btnDelete" class="btn btn-danger" onclick='handleDelete(${p.id})'>eliminar</button>
+      <button class="btn btn-warning" id="btn-editar" onclick='handleEditar(${JSON.stringify(p)})'>editar</button>
       <button class="btn btn-success">ver</button>
       </td>
     </tr>
@@ -100,7 +132,7 @@ const handleMostrar = (e) => {
   e.preventDefault()
   document.getElementById("formulario").style.display = "block"
 }
-document.getElementById("btn-ver").addEventListener("click",handleMostrar)
+//document.getElementById("btn-ver").addEventListener("click",handleMostrar)
 
 const handleAgregar = async (e) => {
   e.preventDefault()
@@ -109,15 +141,16 @@ const handleAgregar = async (e) => {
 let apellido = document.getElementById("apellido").value
 let email = document.getElementById("email").value
 let dni = document.getElementById("dni").value
-
-
+let imagen = document.getElementById("imagen").value
 
   try {
     let response = await axios.post(BASE_URL,{
+    
       nombre:nombre,
       apellido:apellido,
       email,
-      dni
+      dni,
+      imagen
     })
 
     alert("persona creada exitosamente")
@@ -127,3 +160,4 @@ let dni = document.getElementById("dni").value
 }
 
 document.getElementById("btn-agregar").addEventListener("click",handleAgregar)
+document.getElementById("btn-update").addEventListener("click",handleActualizar)

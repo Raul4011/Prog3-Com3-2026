@@ -13,12 +13,11 @@
   ],
   "personas": [
     {
-      "id": "1",
-      "nombre": "beatriz",
+      "nombre": "beatriz asd",
       "apellido": "carrizo",
-      "dni": 45000123,
       "email": "bety@gmail.com",
-      "imagen": "sin imagen"
+      "dni": "45000123",
+      "id": "1"
     },
     {
       "id": "2",
@@ -50,6 +49,22 @@
       "email": "asd@gmail.com",
       "dni": "45644556",
       "id": "ln7o-MmPiyw"
+    },
+    {
+      "nombre": "lionel andres",
+      "apellido": "messi",
+      "email": "messi@gmail.com",
+      "dni": "38525321",
+      "imagen": "sin imagen",
+      "id": "YVglE7Pe40g"
+    },
+    {
+      "nombre": "javier andtres",
+      "apellido": "mascherano",
+      "email": "javier@gmail.com",
+      "dni": "451234556",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShuCAnDWFXtG88xvMaIkFj3JCyYiy7q-QgYw&s",
+      "id": "ty8j6vUqGbQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

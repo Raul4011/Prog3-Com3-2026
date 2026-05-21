@@ -17,7 +17,7 @@ background: linear-gradient(to right, #E684AE, #79CBCA, #77A1D3); /* W3C, IE 10+
 .footer {
     background-color: orange;
 }
-#form {
+#formulario {
     width: 40%;
     margin: auto;
     border-radius: 10px;
