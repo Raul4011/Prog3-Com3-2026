@@ -1,7 +1,5 @@
-
-
-let personas = []
-let idPersona =0;
+let personas = [];
+let idPersona = 0;
 
 // "users":[{
 //         "id":1,
@@ -45,67 +43,67 @@ let idPersona =0;
 //         "imagen":"sin imagen"
 //     }]
 
-const BASE_URL = "http://localhost:8000/personas/"
-document.getElementById("btn-update").style.display = "none"
+const BASE_URL = "http://localhost:8000/personas/";
+document.getElementById("btn-update").style.display = "none";
 
 const handleDelete = async (id) => {
   console.log(id);
-  let mensaje = prompt("esta seguro que quieres eliminar si/no")
+  let mensaje = prompt("esta seguro que quieres eliminar si/no");
   if (mensaje === "si") {
     try {
-      let response = await axios.delete(BASE_URL + id)
-      alert("persona eliminada")
-
+      let response = await axios.delete(BASE_URL + id);
+      alert("persona eliminada");
     } catch (error) {
       console.log(error);
     }
   }
-}
+};
 
-const handleActualizar = async(id) => {
-let nombre= document.getElementById("nombre").value
-let apellido = document.getElementById("apellido").value
-let email = document.getElementById("email").value
-let dni = document.getElementById("dni").value
-let imagen = document.getElementById("imagen").value
+const handleActualizar = async (id) => {
+  let nombre = document.getElementById("nombre").value;
+  let apellido = document.getElementById("apellido").value;
+  let email = document.getElementById("email").value;
+  let dni = document.getElementById("dni").value;
+  let imagen = document.getElementById("imagen").value;
 
-try {
-   let response = await axios.put(BASE_URL + idPersona,{
-    nombre:nombre,
-    apellido,
-    email,
-    dni,
-    imagen
-  })
-  response && alert("persona editada correctamente")
-} catch (error) {
-  console.log(error);
-}
- 
-}
+  try {
+    let response = await axios.put(BASE_URL + idPersona, {
+      nombre: nombre,
+      apellido,
+      email,
+      dni,
+      imagen,
+    });
+    response && alert("persona editada correctamente");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-const handleEditar = (persona) =>{
-  idPersona = persona.id
-//console.log(id)
-//let response = await axios.get(BASE_URL+id)
+const handleEditar = (persona) => {
+  idPersona = persona.id;
+  //console.log(id)
+  //let response = await axios.get(BASE_URL+id)
 
-document.getElementById("btn-update").style.display = "block"
-document.getElementById("btn-agregar").style.display = "none"
-  document.getElementById("nombre").value = persona.nombre
-document.getElementById("apellido").value = persona.apellido
-document.getElementById("email").value = persona.email
-document.getElementById("dni").value = persona.dni
-document.getElementById("imagen").value = persona.imagen
-}
+  document.getElementById("btn-update").style.display = "block";
+  document.getElementById("btn-agregar").style.display = "none";
+  document.getElementById("nombre").value = persona.nombre;
+  document.getElementById("apellido").value = persona.apellido;
+  document.getElementById("email").value = persona.email;
+  document.getElementById("dni").value = persona.dni;
+  document.getElementById("imagen").value = persona.imagen;
+};
 
 const getPersonas = async () => {
-  let response = await axios.get(BASE_URL)
-  personas = response.data
+  let response = await axios.get(BASE_URL);
+  personas = response.data;
   console.log(response.data);
 
   if (personas.length > 0) {
     console.log("entro x aqui");
-    response.data.map(p => document.getElementById("tbody").innerHTML += `
+    response.data.map(
+      (p) =>
+        (document.getElementById("tbody").innerHTML += `
  <tr>
       <th scope="row">${p.id}</th>
       <td>${p.nombre} ${p.apellido}</td>
@@ -120,44 +118,48 @@ const getPersonas = async () => {
       <button class="btn btn-success">ver</button>
       </td>
     </tr>
-`)
+`),
+    );
   } else {
-    document.getElementById("tabla").innerHTML = "<td>NO hay Nada para mostrar</td>"
+    document.getElementById("tabla").innerHTML =
+      "<td>NO hay Nada para mostrar</td>";
   }
-
-}
- getPersonas()
+};
+getPersonas();
 
 const handleMostrar = (e) => {
-  e.preventDefault()
-  document.getElementById("formulario").style.display = "block"
-}
+  e.preventDefault();
+  document.getElementById("formulario").style.display = "block";
+};
 //document.getElementById("btn-ver").addEventListener("click",handleMostrar)
 
 const handleAgregar = async (e) => {
-  e.preventDefault()
+  e.preventDefault();
   //tomo los datos
-  let nombre= document.getElementById("nombre").value
-let apellido = document.getElementById("apellido").value
-let email = document.getElementById("email").value
-let dni = document.getElementById("dni").value
-let imagen = document.getElementById("imagen").value
+  let nombre = document.getElementById("nombre").value;
+  let apellido = document.getElementById("apellido").value;
+  let email = document.getElementById("email").value;
+  let dni = document.getElementById("dni").value;
+  let imagen = document.getElementById("imagen").value;
 
   try {
-    let response = await axios.post(BASE_URL,{
-    
-      nombre:nombre,
-      apellido:apellido,
+    let response = await axios.post(BASE_URL, {
+      nombre: nombre,
+      apellido: apellido,
       email,
       dni,
-      imagen
-    })
+      imagen,
+    });
 
-    alert("persona creada exitosamente")
+    alert("persona creada exitosamente");
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-}
+};
 
-document.getElementById("btn-agregar").addEventListener("click",handleAgregar)
-document.getElementById("btn-update").addEventListener("click",handleActualizar)
+document.getElementById("btn-agregar").addEventListener("click", handleAgregar);
+document
+  .getElementById("btn-update")
+  .addEventListener("click", handleActualizar);
+
+
